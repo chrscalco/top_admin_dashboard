@@ -7,27 +7,35 @@
 
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: 'robotoregular', sans-serif;
 }
 
 .container {
     display: grid;
     grid-template: 1fr 5fr / 1fr 3fr 1fr;
+    width: 100vw;
+    height: 100vh;
     box-sizing: content-box;
 }
 
 /* Header */
 
 .header {
-    padding-right: 20px;
-    padding-left: 20px;
-    background-color: aliceblue;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: white;
     grid-area: 1 / 2 / 2 / -1;
     display: grid;
-    grid-template: 1fr 2fr
+    grid-template: 1fr 2fr;
+    position: relative;
+    box-shadow: 0px 2px 8px grey;
 }
 
 .non-sticky-header {
@@ -35,39 +43,211 @@ body {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .header-user {
-    justify-self: center;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+    margin-bottom: 6px;
 }
 
-.header-search {
+.notifications {
+    margin-right: 20px;
+    height: 22px;
+    width: 22px;
+}
 
+.header-user img + img{
+    background-color: #F0B429;
+    border-radius: 100%;
+    margin-right: 20px;
+    height: 40px;
+    width: 40px;
+}
+
+.header-search button {
+    background-image: url(imgs/magnify.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+    bottom: 4px;
+    height: 35px;
+    width: 35px;
+    background-color: white;
 }
 
 input[type="search"] {
-    width: 100%;
+    width: 80%;
+    max-width: 600px;
+    background-color: #E2E8F0;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.sticky-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    z-index: 1;
+}
+
+.user-info {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-info img {
+    background-color: #F0B429;
+    border-radius: 100%;
+    margin-right: 20px;
+}
+
+.greeting {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    justify-content: space-between;
+    flex: 1 1 0;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #1992D4;
+    border: none;
+    width: 120px;
+    height: 45px;
+    border-radius: 26px;
+    padding: 10px 10px;
+    cursor: pointer;
 }
 
 /* Sidebar */
 
 .sidebar {
+    padding: 28px;
     padding-right: 20px;
     padding-left: 20px;
-    background-color: antiquewhite;
+    background-color: #1992D4;
+    color: white;
     grid-area: 1 / 1 / 5 / 2;
+    overflow: hidden;
+}
+
+.sidebar img {
+    float: left;
+    margin-right: 5px;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 80px;
+    font-size: 26px;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+li::before {
+    content: '';
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    position: relative;
+    top: 4px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+
+.list-home::before {
+    background-image: url(imgs/home.svg);
+}
+
+.list-profile::before {
+    background-image: url(imgs/profile.png);
+}
+
+.list-msg::before {
+    background-image: url(imgs/msg.png);
+}
+
+.list-history::before {
+    background-image: url(imgs/history.png);
+}
+
+.list-tasks::before {
+    background-image: url(imgs/tasks.png);
+}
+
+.list-communities::before {
+    background-image: url(imgs/community.png);
+}
+
+.list-settings::before {
+    background-image: url(imgs/settings.png);
+}
+
+.list-support::before {
+    background-image: url(imgs/support.png);
+}
+
+.list-privacy::before {
+    background-image: url(imgs/privacy.png);
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
 }
 
 /* Projects */
 
 .projects {
     padding: 20px;
-    background-color: azure;
+    background-color: #E2E8F0;
 }
+
+.projects-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project {
+    padding: 20px;
+    padding-top: 40px;
+    background-color: white;
+    border-radius: 10px;
+} 
 
 /* Right side */
 
 .rightbar {
     padding: 20px;
-    background-color: beige;
+    background-color: #E2E8F0;
 }
